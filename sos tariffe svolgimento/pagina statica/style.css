@@ -1,0 +1,134 @@
+/* commons */
+
+main {
+    width: 80%;
+    margin: auto;
+}
+li {
+    cursor: pointer;
+}
+h5 {
+    margin-bottom: 2px;
+}
+hr {
+    color: lightgray;
+}
+h4 {
+    margin-bottom: 0px;;
+}
+
+/* header */
+
+.hero {
+    height: 774px;
+    background-image: url("img/header.png");
+    background-position: center;
+    background-size: cover;
+}
+.text-hero-container {
+    width: 80%;
+    margin: auto;
+    position: absolute;
+}
+.text-hero-container p, input {
+    position: relative;
+    top: 40px;
+    left: 20%;
+}
+.text-hero-container p {
+    font-size: 22px;
+}
+#cta {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 50px;
+    margin-top: 5px;
+}
+.sito-name {
+    margin-bottom: 50px;
+    color: rgb(125, 171, 224);
+}
+/*section services*/
+
+.services
+{
+    height: 370px;
+}
+.box-container {
+    display: flex;
+    margin-top: 30px;
+}
+.box {
+    width:25%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: -5px 0px 10px 3px lightgray;
+}
+.icon-service {
+    color: lightblue;
+    margin-top: 10px;
+}
+.box p {
+    color: gray;
+}
+/*section feedbacks*/
+
+.feedback {
+    display: flex;
+    box-shadow:  1px 1px 10px 5px lightgray;
+    background-color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 20px;
+}
+.left-container {
+    margin: 15px;
+}
+.fa-share {
+    margin-top: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: gray;
+}
+.user-comment {
+    margin-top: 2px;
+    color: gray;
+}
+.img-container-1 {
+    border-radius: 50%;
+    border: 2px solid lightblue;
+    height: 60px;
+    width: 60px;
+    background-image: url("img/person1.jpg");
+    background-size: cover;
+}
+.img-container-2 {
+    border-radius: 50%;
+    border: 2px solid lightblue;
+    height: 60px;
+    width: 60px;
+    background-image: url("img/person2.jpg");
+    background-size: cover;
+}
+
+/*footer*/
+
+footer {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;;
+}
+.footer-container {
+    display: flex;
+    justify-content: end;
+}
+li {
+    display: inline-block;
+    list-style: none;
+    padding: 3px;
+    color: grey;
+}
