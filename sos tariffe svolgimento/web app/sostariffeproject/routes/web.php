@@ -15,32 +15,48 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    // $items = config("items");
-
-    // $items = collect($items)->sortBy('name')->toArray();
-
-    // return view('search', compact($items));
-    return view('search');
+    
+    $items = config("items");
+    // ordino gli items alfabeticamente
+    $items = collect($items)->sortBy('name')->toArray();
+    
+     return view('search', [
+        'items' => $items
+    ]);
+   
 });
 Route::get('/selection/{id}', function ($id) {
     
-    // $stores = collect(config("stores"));
+     $stores = config("stores");
+    // creo array vuoto
+     $filtered = [];
+    // controllo corrispondeza id qty mqty e sottrazione
 
-    // $filtered = $stores->filter(function ($value, $key) use($id) {
-    //     foreach($value["items"] as $item) {
-    //         if($item['id'] == $id && $item["qty"] < $item["minQty"]) {
-    //             return $value;
-    //         }
-    //     }
-    // });
+     foreach ( $stores as $store ) {
+         foreach ( $store["items"] as $item ) {
+             if ( $item["id"] == $id && $item["qty"] < $item["minQty"] ) {
+                 $store["articoliInviati"] = $item["minQty"] - $item["qty"];
 
-    // $items = collect($filtered)->sortBy('distance')->toArray();
-    // dd($items);
-    return view('selection');
+                //  pusho risultati in array filtered
+                 $filtered[] = $store;
+             }
+         }
+     }
+    //  ordino magazzini per distanza
+     $stores = collect($filtered)->sortBy('distance')->toArray();
+    
+     $items = config("items");
+
+    //  passo nomi items anche nella selection view
+     foreach ($items as $item) {
+         if($item['id'] == $id) {
+             $nome_prodotto = $item['name'];
+         }
+     }
+
+     return view('selection', [
+        "stores" => $stores,
+        "nome_prodotto" => $nome_prodotto        
+    ]);
 
 });
-Route::get('/thanks', function () {
-    return view('thanks');
-
-});
-

@@ -19334,7 +19334,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ././partials/search.js */ "./resources/js/partials/search.js");
 
-__webpack_require__(/*! ././partials/thanks.js */ "./resources/js/partials/thanks.js");
+__webpack_require__(/*! ././partials/selection-thanks.js */ "./resources/js/partials/selection-thanks.js");
 
 /***/ }),
 
@@ -19377,23 +19377,55 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+$("#input-text").keyup(function () {
+  // prendo valore input
+  var searchInput = $(this).val();
+  searchInput = searchInput.toLowerCase();
+  var itemName = $(".items-results .item-name");
+  var itemDescr = $(".items-results .item-description"); // controllo su name
 
+  itemName.each(function () {
+    var name = $(this).text();
+    name = name.toLowerCase();
+
+    if (name.includes(searchInput) == true) {
+      $(this).parents(".items-results").show();
+    } else {
+      $(this).parents(".items-results").hide();
+    }
+  }); //  controllo su description
+
+  itemDescr.each(function () {
+    var descr = $(this).text();
+    descr = descr.toLowerCase();
+
+    if (descr.includes(searchInput) == true) {
+      $(this).parents(".items-results").show();
+    } else {
+      $(this).parents(".items-results").hide();
+    }
+  });
+});
 
 /***/ }),
 
-/***/ "./resources/js/partials/thanks.js":
-/*!*****************************************!*\
-  !*** ./resources/js/partials/thanks.js ***!
-  \*****************************************/
+/***/ "./resources/js/partials/selection-thanks.js":
+/*!***************************************************!*\
+  !*** ./resources/js/partials/selection-thanks.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// $(document).on("click", "#cta",
-//   function(){
-//     document.getElementById("overlay").style.display = "block";
-//   }
-// );
-alert("ciao");
+$(document).on("click", ".input-js", function () {
+  document.getElementById("overlay").style.display = "block";
+  var nomeMagazzino = $(this).parents('.items-results').attr("data-magazzino");
+  var articoli = $(this).parents('.items-results').attr("data-articoli");
+  $("#overlay-magazzino").html(nomeMagazzino);
+  $("#overlay-articoli").html(articoli);
+});
+$(document).on("click", "#chiudi", function () {
+  document.getElementById("overlay").style.display = "none";
+});
 
 /***/ }),
 

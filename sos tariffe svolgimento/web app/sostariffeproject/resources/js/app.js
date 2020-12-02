@@ -1,3 +1,3 @@
 require('./bootstrap');
 require("././partials/search.js");
-require("././partials/thanks.js");
+require("././partials/selection-thanks.js");

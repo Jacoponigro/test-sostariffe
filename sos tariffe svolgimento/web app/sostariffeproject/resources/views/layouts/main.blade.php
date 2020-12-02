@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     
     <title>@yield("title")</title>
   </head>

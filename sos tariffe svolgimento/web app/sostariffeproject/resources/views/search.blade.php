@@ -6,20 +6,23 @@
 @section("main-content")
   <form>
     <i class="fas fa-search icon"></i>
-    <input class="input-text" type="text" placeholder="Di cosa hai bisogno oggi?"><a href=""><input class="search"type="submit" value="CERCA"></a>
+    <input id="input-text"class="input-text" type="text" placeholder="Di cosa hai bisogno oggi?"><button class="search">CERCA</button>
   </form>
   <p id="results">Risultati</p>
+  
+ {{-- stampo risultati --}}
 
- 
+ @foreach ($items as $item)
   <div class="items-results">
     <div class="container-info">
-      <p>nome prodotto</p>
-      <small>lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+    <p class="item-name">{{$item["name"]}}</p>
+    <small class="item-description">{{$item["description"]}}</small>
     </div>
     <div class="input-container">
-    <a><input class="cta" type="submit" value="NOME CTA"></a>
+    <a href="/selection/{{$item["id"]}}"><button class="cta">NOME CTA</button></a>
     </div> 
   </div>
-      
+
+@endforeach
 @endsection
 

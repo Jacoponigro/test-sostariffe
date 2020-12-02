@@ -25,11 +25,12 @@ input[type="text"] {
 } 
 .items-results {
     width: 94%;
-    height:50px;
+    height:80px;
     border: 1px solid lightgray;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 .container-info {
     margin-left: 10px;;

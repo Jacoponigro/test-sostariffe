@@ -5,16 +5,32 @@
 
 @section("main-content")
   <p>Risultati</p>
+{{-- overlay --}}
 
-  <div class="items-results">
+  <div id="overlay">
+    <div class="confirmed-action">
+      <p id="confirmed-p">Azione Confermata</p>
+      <ul class="gray">
+      <li>Prodotto: {{$nome_prodotto}}</li>
+      <li>Magazzino: <span id="overlay-magazzino"></span></li>
+      <li>Articoli Inviati: <span id="overlay-articoli"></span></li>
+      </ul>
+      <button id="chiudi">CHIUDI</button>
+    </div>
+  </div>
+{{-- stampo risultati --}}
+
+@foreach ($stores as $store)
+<div class="items-results" data-magazzino="{{$store["name"]}}" data-articoli="{{ $store["articoliInviati"] }}">
     <div class="container-info">
-      <p id="name-selection">nome magazzino</p>
+      <p class="name-selection">{{$store["name"]}}</p>
     </div>
     <div class="distance">
-      <p>Distanza:</p>
+    <p>Distanza: {{$store["distance"]}}km</p>
     </div>
     <div class="input-container">
-    <a><input class="cta" type="submit" value="NOME CTA"></a>
-    </div> 
+      <button class="cta input-js">NOME CTA</button>
+    </div>
   </div>
+@endforeach
 @endsection
